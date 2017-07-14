@@ -40,3 +40,45 @@ div[data-role="editor-toolbar"] {
 .dropdown-menu a {
   cursor: pointer;
 }
+
+.error-field {
+  border: 2px solid red;
+  border-radius: 5px;
+  border-color: red;
+}
+
+.error-msg {
+  color: red;
+}
+
+.more-padding {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.extra-space-50 {
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.extra-space-20{
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+.date {
+  font-family: "Pinyon script";
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+}
+
+.button-td,
+.button-a {
+  transition: all 100ms ease-in;
+}
+.button-td:hover,
+.button-a:hover {
+  background: #555555 !important;
+  border-color: #555555 !important;
+}

@@ -25,42 +25,6 @@
     <link href="css/starter-template.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
 
-    <!-- Styles used in the preview below -->
-    <style type="text/css">
-
-      .more-padding {
-        padding-left: 10%;
-        padding-right: 10%;
-      }
-
-      .extra-space-50 {
-        padding-top: 25px;
-        padding-bottom: 50px;
-      }
-
-      .extra-space-20{
-        padding-bottom: 20px;
-        padding-top: 10px;
-      }
-
-      .date {
-        font-family: "Pinyon script";
-        font-weight: bold;
-        font-size: 30px;
-        text-align: center;
-      }
-
-      .button-td,
-      .button-a {
-        transition: all 100ms ease-in;
-      }
-      .button-td:hover,
-      .button-a:hover {
-        background: #555555 !important;
-        border-color: #555555 !important;
-      }
-    </style>
-
   </head>
 
   <body>
@@ -69,7 +33,7 @@
     <div class="container more-padding">
 
       <div class="starter-template">
-        <h1>HTML invitation generator</h1>
+        <h1 id="top_page">HTML invitation generator</h1>
         <div class="extra-space-50"></div>
 
         <div class="form-group">
@@ -79,9 +43,9 @@
               <p>Titre de l'évènement</p>
             </div>
             <div class="col-md-3">
-              <input class="form-control" name="titre" type="text" placeholder="Petit déjeuner du 02 Février">
+              <input class="form-control error-field" name="titre" type="text" id="titre_field" placeholder="Petit déjeuner du 02 Février">
             </div>
-            <div class="col-md-3"></div>  
+            <div class="col-md-3" id="err_container"></div>  
           </div>
         </div>
 
@@ -412,23 +376,36 @@
       });
 
       $('.subBtn').click(function(){
+
         var titre = $('input[name="titre"]').val();
-        var contenu = document.getElementById("editor").innerHTML;
 
-        var source_contenu = document.getElementById("source_contenu");
-        source_contenu.innerHTML = contenu;
-        var source_titre = document.getElementById("source_titre");
-        source_titre.innerHTML = '<h2 class="date">' + titre + '</h2>';
+        if (titre == '' || typeof titre == 'undefined') {
+          document.getElementById("err_container").innerHTML = '<p class="error-msg">Titre manquant</p>';
+          $('#titre_field').addClass("error-field");
+          $('.subBtn').attr("href","#top_page");
+        }
+        else {
 
-        var source = document.getElementById("source_code").innerHTML;
-        var output_source = document.getElementById("output_source");
-        output_source.innerHTML = source;
-        output_source.style.display='block';
+          $('#titre_field').removeClass("error-field");
+          document.getElementById("err_container").innerHTML = '';
+          $('.subBtn').attr("href","#preview")
 
-        var preview = document.getElementById("preview");
+          var contenu = document.getElementById("editor").innerHTML;
 
-        preview.innerHTML = '<center style="background: #ffffff;"><div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">(Optional) This text will appear in the inbox preview, but not the email body.</div><div style="margin: auto;" class="email-container"><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td style="padding: 20px 0; text-align: center;"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-logo.png" width="400" height="161" alt="alt_text" border="0" style="height: auto; background: #ffffff; font-family: sans-serif; color: #ffffff;" /></td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td bgcolor="#ffffff"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-invitation-titre.png" width="600" height="200" alt="Invitation" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;" /></td></tr><tr><td bgcolor="#ffffff"><h2 class="date">' + titre + '</h2><img src="http://image.noelshack.com/fichiers/2017/28/5/1500004225-divider.png" width="600" height="20" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; padding-bottom:20px; position:relative;" /></td></tr><tr><td bgcolor="#ffffff"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td style="padding: 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #000000; text-align: center;"><blockquote type="cite"><div>' + contenu + '</div></blockquote><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;"><tbody><tr><td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://connexion-fc.com/contacter-le-club" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> <span style="color: #ffffff;" class="button-link">    Confirmer    </span> </a></td></tr></tbody></table>  </td></tr></tbody></table> </td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;"><tbody><tr><td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; line-height: 18px; text-align: center; color: #888888;"><webversion style="color: #888888; text-decoration: underline; font-weight: bold;">Voir dans une page web</webversion> <br /><br /> Club Connexion France-Chine<br /><span class="mobile-link--footer">18 rue Gaston de Caillavet, 75015 Paris, France</span><br /><span class="mobile-link--footer">+33 6 60 22 71 00</span><br><a href="http://www.freepik.com/free-vector/ornamental-dividers_782830.htm"><unsubscribe style="color: #888888; text-decoration: underline;">Divider designed by Freepik</unsubscribe></a></td></tr></tbody></table></div></center>';
+          var source_contenu = document.getElementById("source_contenu");
+          source_contenu.innerHTML = contenu;
+          var source_titre = document.getElementById("source_titre");
+          source_titre.innerHTML = '<h2 class="date">' + titre + '</h2>';
 
+          var source = document.getElementById("source_code").innerHTML;
+          var output_source = document.getElementById("output_source");
+          output_source.innerHTML = source;
+          output_source.style.display='block';
+
+          var preview = document.getElementById("preview");
+
+          preview.innerHTML = '<center style="background: #ffffff;"><div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">(Optional) This text will appear in the inbox preview, but not the email body.</div><div style="margin: auto;" class="email-container"><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td style="padding: 20px 0; text-align: center;"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-logo.png" width="400" height="161" alt="alt_text" border="0" style="height: auto; background: #ffffff; font-family: sans-serif; color: #ffffff;" /></td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td bgcolor="#ffffff"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-invitation-titre.png" width="600" height="200" alt="Invitation" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;" /></td></tr><tr><td bgcolor="#ffffff"><h2 class="date">' + titre + '</h2><img src="http://image.noelshack.com/fichiers/2017/28/5/1500004225-divider.png" width="600" height="20" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; padding-bottom:20px; position:relative;" /></td></tr><tr><td bgcolor="#ffffff"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td style="padding: 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #000000; text-align: center;"><blockquote type="cite"><div>' + contenu + '</div></blockquote><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;"><tbody><tr><td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://connexion-fc.com/contacter-le-club" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> <span style="color: #ffffff;" class="button-link">    Confirmer    </span> </a></td></tr></tbody></table>  </td></tr></tbody></table> </td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;"><tbody><tr><td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; line-height: 18px; text-align: center; color: #888888;"><webversion style="color: #888888; text-decoration: underline; font-weight: bold;">Voir dans une page web</webversion> <br /><br /> Club Connexion France-Chine<br /><span class="mobile-link--footer">18 rue Gaston de Caillavet, 75015 Paris, France</span><br /><span class="mobile-link--footer">+33 6 60 22 71 00</span><br><a href="http://www.freepik.com/free-vector/ornamental-dividers_782830.htm"><unsubscribe style="color: #888888; text-decoration: underline;">Divider designed by Freepik</unsubscribe></a></td></tr></tbody></table></div></center>';
+        } //end else
       })
     </script>
   </body>
