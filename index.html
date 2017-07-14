@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Club Connexion Invitation Email</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="http://mindmup.s3.amazonaws.com/lib/img/favicon.ico" >
+    <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+
+    <!-- Styles used in the preview below -->
+    <style type="text/css">
+
+      .more-padding {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+
+      .extra-space-50 {
+        padding-top: 25px;
+        padding-bottom: 50px;
+      }
+
+      .extra-space-20{
+        padding-bottom: 20px;
+        padding-top: 10px;
+      }
+
+      .date {
+        font-family: "Pinyon script";
+        font-weight: bold;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .button-td,
+      .button-a {
+        transition: all 100ms ease-in;
+      }
+      .button-td:hover,
+      .button-a:hover {
+        background: #555555 !important;
+        border-color: #555555 !important;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="extra-space-50"></div>
+
+    <div class="container more-padding">
+
+      <div class="starter-template">
+        <h1>HTML invitation generator</h1>
+        <div class="extra-space-50"></div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"> 
+              <p>Titre de l'évènement</p>
+            </div>
+            <div class="col-md-3">
+              <input class="form-control" name="titre" type="text" placeholder="Petit déjeuner du 02 Février">
+            </div>
+            <div class="col-md-3"></div>  
+          </div>
+        </div>
+
+        <div class="extra-space-20"></div>
+        <h5>Contenu de l'invitation</h5>
+        <div class="extra-space-20"></div>
+
+        <div id="alerts"></div>
+        <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+              <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+              <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+              </ul>
+          </div>
+          <div class="btn-group">
+            <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+            <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+            <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+            <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+          </div>
+          <div class="btn-group">
+            <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+            <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+            <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+            <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+          </div>
+          <div class="btn-group">
+            <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+            <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+            <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+            <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+          </div>
+          <div class="btn-group">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+            <div class="dropdown-menu input-append">
+              <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+              <button class="btn" type="button">Add</button>
+            </div>
+            <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+          </div>
+          
+          <div class="btn-group">
+            <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+            <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+          </div>
+          <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+        </div>
+
+        <div id="editor">
+          <p>Le Club « Connexion France-Chine » a le plaisir de vous convier à son prochain petit déjeuner et/ou dîner le lundi 6 février 2017 au restaurant:</p>
+
+          <p>«Le Laurent», 41 Avenue Gabriel, 75008 Paris.</p>
+
+          <p>Sur le thème de la « Résonance », venez participer à des rencontres rares avec un groupe VVIP venu spécialement de Chine avec notamment, la star de Cinéma, Mme Song Jia, les Présidents de grosses sociétés chinoises et des investisseurs.
+          Merci de cliquer sur le bouton ci-dessous pour vous inscrire au petit déjeuner et/ou dîner.</p>  
+        </div>
+
+        <div class="extra-space-20"></div>
+        <a class="btn btn-primary subBtn" href="#preview">Aperçu</a>
+        <div class="extra-space-50"></div>
+
+        <h3>Aperçu du mail</h3>
+        <div class="extra-space-20"></div>
+        <div class="well">
+          <div id="preview"></div>
+        </div>
+
+        <div class="extra-space-50"></div>
+        <h3>Code source</h3>
+
+        <div class="text-left">
+          <h6>Instructions</h6>
+          <li>Selectionner tout le code source (Ctrl+A) ci-dessous</li>
+          <li>Copier la sélection (Ctrl + C)</li>
+          <li>Accéder à <a href="http://htmlmail.pro">htmlmail.pro</a> pour envoyer le mail</li>
+          <li>Se connecter avec gmail</li>
+          <li>Cliquer sur "Compose Email"</li>
+          <li>Remplir les champs sujets & destinataires</li>
+          <li>Aller dans l'onget: HTML source</li>
+          <li>Remplacer tout ce qui est écrit dans ce champ par la selection dans le presse-papier (Ctrl + V)</li>
+          <li>Envoyer !</li>
+        </div>
+
+
+        <div class="extra-space-20"></div>
+
+        <div class="well container" id="source_code" style="display: none;">
+          &lt;!DOCTYPE html&gt;
+            &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+            &lt;head&gt;
+              <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+              <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+              <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+              <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+              <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+              <!-- Web Font / @font-face : BEGIN -->
+              <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+              <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+              <!-- Web Font / @font-face : END -->
+
+              <!-- CSS Reset -->
+              <style>
+
+                /* What it does: Remove spaces around the email design added by some email clients. */
+                /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+                html,
+                body {
+                  margin: 0 auto !important;
+                  padding: 0 !important;
+                  height: 100% !important;
+                  width: 100% !important;
+                }
+
+                .date {
+                  font-family: "Pinyon script";
+                  font-weight: bold;
+                  font-size: 30px;
+                  text-align: center;
+                }
+
+                /* What it does: Stops email clients resizing small text. */
+                * {
+                  -ms-text-size-adjust: 100%;
+                  -webkit-text-size-adjust: 100%;
+                }
+
+                /* What is does: Centers email on Android 4.4 */
+                div[style*="margin: 16px 0"] {
+                  margin:0 !important;
+                }
+
+                /* What it does: Stops Outlook from adding extra spacing to tables. */
+                table,
+                td {
+                  mso-table-lspace: 0pt !important;
+                  mso-table-rspace: 0pt !important;
+                }
+
+                /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+                table {
+                  border-spacing: 0 !important;
+                  border-collapse: collapse !important;
+                  table-layout: fixed !important;
+                  margin: 0 auto !important;
+                }
+                table table table {
+                  table-layout: auto; 
+                }
+
+                /* What it does: Uses a better rendering method when resizing images in IE. */
+                img {
+                  -ms-interpolation-mode:bicubic;
+                }
+
+                /* What it does: A work-around for iOS meddling in triggered links. */
+                .mobile-link--footer a,
+                a[x-apple-data-detectors] {
+                  color:inherit !important;
+                  text-decoration: underline !important;
+                }
+
+                /* What it does: Prevents underlining the button text in Windows 10 */
+                .button-link {
+                  text-decoration: none !important;
+                }
+
+                /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+                /* Create one of these media queries for each additional viewport size you'd like to fix */
+                /* Thanks to Eric Lepetit @ericlepetitsf) for help troubleshooting */
+                @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { /* iPhone 6 and 6+ */
+                  .email-container {
+                    min-width: 375px !important;
+                  }
+                }
+
+              </style>
+
+              <!-- Progressive Enhancements -->
+              <style>
+
+                /* What it does: Hover styles for buttons */
+                .button-td,
+                .button-a {
+                  transition: all 100ms ease-in;
+                }
+                .button-td:hover,
+                .button-a:hover {
+                  background: #555555 !important;
+                  border-color: #555555 !important;
+                }
+
+              </style>
+
+            &lt;/head&gt;
+            &lt;body width="100%" bgcolor="#ffffff" style="margin: 0; mso-line-height-rule: exactly;"&gt;
+              <center style="width: 100%; background: #ffffff;">
+              
+              <!-- Visually Hidden Preheader Text : BEGIN -->
+                <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">(Optional) This text will appear in the inbox preview, but not the email body.</div>
+              <!-- Visually Hidden Preheader Text : END --> 
+              <!-- Set the email width. Defined in two places:
+          1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 600px.
+          2. MSO tags for Desktop Windows Outlook enforce a 600px width.-->
+                
+                <div style="max-width: 600px; margin: auto;" class="email-container">
+                
+                <!-- [if mso]><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+              <tr>
+              <td>
+              <![endif]--> 
+
+            
+              <!-- Email Header : BEGIN -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
+                    <tbody>
+                      <tr>
+                        <td style="padding: 20px 0; text-align: center;"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-logo.png" width="400" height="161" alt="alt_text" border="0" style="height: auto; background: #ffffff; font-family: sans-serif; color: #ffffff;" /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+               <!-- Email Header : END -->
+               
+               
+               <!-- Email Body : BEGIN -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
+                  
+                <!-- Hero Image, Flush : BEGIN -->
+                    <tbody>
+                      <tr>
+                        <td bgcolor="#ffffff"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-invitation-titre.png" width="600" height="200" alt="Invitation" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;" /></td>
+                      </tr>
+                <!-- Hero Image, Flush : END --> 
+                
+                
+                <!-- Text Divider + date : BEGIN -->
+                      <tr>
+
+                        <td bgcolor="#ffffff"><div id="source_titre"></div><img src="http://image.noelshack.com/fichiers/2017/28/5/1500004225-divider.png" width="600" height="20" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; padding-bottom:20px; position:relative;" /></td>
+                      </tr>
+                <!-- Text Divider + date : END --> 
+                
+                
+                <!-- 1 Column Text + Button : BEGIN -->
+                      <tr>
+                        <td bgcolor="#ffffff">
+                          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tbody>
+                              <tr>
+                                <td style="padding: 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #000000; text-align: center;">
+                                  <blockquote type="cite">
+                                    <div id="source_contenu"></div>
+                                  </blockquote>
+                                  
+                                  <!-- Button : Begin -->
+                                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;">
+                                    <tbody>
+                                      <tr>
+                                        <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://connexion-fc.com/contacter-le-club" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> <span style="color: #ffffff;" class="button-link">    Confirmer    </span> </a></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>  
+                                  <!-- Button : END -->
+                                
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <!-- 1 Column Text + Button : END -->
+                   
+                    </tbody>
+                  </table>
+                  <!-- Email Body : END --> 
+                  
+                  
+                  <!-- Email Footer : BEGIN -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+                    <tbody>
+                      <tr>
+                        <td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; line-height: 18px; text-align: center; color: #888888;"><webversion style="color: #888888; text-decoration: underline; font-weight: bold;">Voir dans une page web</webversion> <br /><br /> Club Connexion France-Chine<br /><span class="mobile-link--footer">18 rue Gaston de Caillavet, 75015 Paris, France</span><br /><span class="mobile-link--footer">+33 6 60 22 71 00</span> 
+                        <!-- Unsubscribe button disabled
+                  <br><br>
+                    <unsubscribe style="color:#888888; text-decoration:underline;" unsubscribe</unsubscribe> 
+                          <br /><br />-->  
+                          
+                          <a href="http://www.freepik.com/free-vector/ornamental-dividers_782830.htm"><unsubscribe style="color: #888888; text-decoration: underline;">Divider designed by Freepik</unsubscribe></a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- Email Footer : END --> 
+                </div>
+              </center>
+            &lt;/body&gt;
+          &lt;/html&gt;
+        </div>
+
+        <div class="well">
+          <textarea id="output_source" style="width: 100%; height:100%;" rows=80 readonly="readonly">
+          </textarea>
+        </div>
+
+      </div>
+
+    </div><!-- /.container -->
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-wysiwyg.js"></script>
+    <script src="js/jquery.hotkeys.js"></script>    
+
+    <script language="javascript">
+      $(function(){
+        $('#editor').wysiwyg();
+        document.getElementById("source_code").style.display='none';
+        document.getElementById("output_source").style.display='none';
+      });
+
+      $('.subBtn').click(function(){
+        var titre = $('input[name="titre"]').val();
+        var contenu = document.getElementById("editor").innerHTML;
+
+        var source_contenu = document.getElementById("source_contenu");
+        source_contenu.innerHTML = contenu;
+        var source_titre = document.getElementById("source_titre");
+        source_titre.innerHTML = '<h2 class="date">' + titre + '</h2>';
+
+        var source = document.getElementById("source_code").innerHTML;
+        var output_source = document.getElementById("output_source");
+        output_source.innerHTML = source;
+        output_source.style.display='block';
+
+        var preview = document.getElementById("preview");
+
+        preview.innerHTML = '<center style="background: #ffffff;"><div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">(Optional) This text will appear in the inbox preview, but not the email body.</div><div style="margin: auto;" class="email-container"><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td style="padding: 20px 0; text-align: center;"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-logo.png" width="400" height="161" alt="alt_text" border="0" style="height: auto; background: #ffffff; font-family: sans-serif; color: #ffffff;" /></td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;"><tbody><tr><td bgcolor="#ffffff"><img src="http://image.noelshack.com/fichiers/2016/52/1483130481-invitation-titre.png" width="600" height="200" alt="Invitation" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;" /></td></tr><tr><td bgcolor="#ffffff"><h2 class="date">' + titre + '</h2><img src="http://image.noelshack.com/fichiers/2017/28/5/1500004225-divider.png" width="600" height="20" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto; padding-bottom:20px; position:relative;" /></td></tr><tr><td bgcolor="#ffffff"><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"><tbody><tr><td style="padding: 0px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #000000; text-align: center;"><blockquote type="cite"><div>' + contenu + '</div></blockquote><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;"><tbody><tr><td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://connexion-fc.com/contacter-le-club" style="background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> <span style="color: #ffffff;" class="button-link">    Confirmer    </span> </a></td></tr></tbody></table>  </td></tr></tbody></table> </td></tr></tbody></table><table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;"><tbody><tr><td style="padding: 40px 10px; width: 100%; font-size: 12px; font-family: sans-serif; line-height: 18px; text-align: center; color: #888888;"><webversion style="color: #888888; text-decoration: underline; font-weight: bold;">Voir dans une page web</webversion> <br /><br /> Club Connexion France-Chine<br /><span class="mobile-link--footer">18 rue Gaston de Caillavet, 75015 Paris, France</span><br /><span class="mobile-link--footer">+33 6 60 22 71 00</span><br><a href="http://www.freepik.com/free-vector/ornamental-dividers_782830.htm"><unsubscribe style="color: #888888; text-decoration: underline;">Divider designed by Freepik</unsubscribe></a></td></tr></tbody></table></div></center>';
+
+      })
+    </script>
+  </body>
+</html>
+
+    
